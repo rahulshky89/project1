@@ -80,3 +80,54 @@ height: 20rem;
     border-radius: 10px 10px 10px 10px ;
     height: 30px;
 }
+.nav{
+    width:100px;
+    height:100px;
+}
+.stayScape{
+    display:flex;
+    position:absolute;
+      left:15px;
+        top:20px;
+    
+}
+.stayScape i{
+    color:red;
+    font-size:20px;
+    margin-left:10px;
+    margin-top:13px;
+
+}
+.icons{
+    display:flex;
+    position:absolute;
+    top: 30px;
+    left:650px;
+}
+.Explore{
+    margin-right:20px;
+    text-decoration:none;
+    color:black;
+    font-size:20px;
+}
+.Destinations{
+       margin-right:20px;
+    text-decoration:none;
+    color:black;
+    font-size:20px;
+}
+.About{
+    text-decoration:none;
+    color:black;
+    font-size:20px;
+}
+.left-nav{
+    display:flex;
+    position:absolute;
+    right:60px;
+    top:25px;
+}
+.stay{
+    margin-left:10px;
+    margin-bottom:30px;
+}
