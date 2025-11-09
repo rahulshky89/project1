@@ -155,11 +155,28 @@ height:25px;
 border:2px solid black;
 border-radius:10px;
 }
-img{
-    height:auto;
-    width:250px;
-}
+
 .images{
     display:flex;
     flex-wrap: wrap;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+}
+.images img{
+     width: 180px;        
+  height: 180px;
+    border-radius: 10px;
+  object-fit: cover;
+   margin-left: -80px;     /* negative margin = overlap (50%) */
+  border: 2px solid #fff;
+    transition: transform 0.3s, z-index 0.3s;
+  cursor: pointer;
+}
+.image-row img:first-child {
+  margin-left: 0;
+}
+.images img:hover {
+  transform: translateY(-20px) scale(1.1); /* upar uthna + thoda bada hona */
+  z-index: 10; /* sabse upar chala jaye hover par */
 }
