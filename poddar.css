@@ -127,7 +127,7 @@ body {
 /* ---------- Icons inside input ---------- */
 .all {
   position: relative;
-  flex: 1 1 250px;
+  flex: 1 1 50px;
 }
 
 .all i {
@@ -188,4 +188,23 @@ body {
   .name h2 {
     font-size: 1rem;
   }
+}
+#check{
+    width:100px;
+    margin-left:100px;
+}
+#checkout{
+    width:150px;
+    
+}
+.label-in{
+    margin-left:50px;
+
+   
+}
+.div-chkout{
+    width:50px;
+}
+.label-i{
+    margin-left:10px;
 }
