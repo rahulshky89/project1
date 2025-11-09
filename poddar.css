@@ -64,23 +64,24 @@ height: 20rem;
 height: 20rem;
 }
 .login-box{
+ 
     position:absolute;
-    top:250px;
-    left:400px;
-    height: 100px;
-    width: 750px;
-    background-color:white;
+    top:380px;
+    left:340px;
+    height: 160px;
+    width: 950px;
+    background-color: rgba(255, 255, 255,1);  
     border-radius: 10px 10px 10px 10px;
 }
 
 .bt{
-    background-color: orangered;
+    background-color: #ff4500;
     color: white;
     position: absolute;
-    left: 300px;
-    top: 50px;
+    left: 350px;
+    top: 120px;
     border: 0;
-    width: 150px;
+    width: 200px;
     border-radius: 10px 10px 10px 10px ;
     height: 30px;
 }
@@ -163,7 +164,9 @@ border-radius:10px;
     justify-content:center;
     position:absolute;
     top:100px;
-    left:125px;
+    left:38px;
+      position: relative;
+  z-index: 0;
 }
 .images img{
      width: 250px;        
@@ -184,9 +187,80 @@ border-radius:10px;
 .images::after {
   content: "";
   position: absolute;
-  top: 0; left:-85px;
-  width: 1475px; height: 100%;
+  top: 0; left:-28px;
+  width: 1463px; height: 100%;
   background-color: rgba(166, 119, 38, 0.45);  
   pointer-events: none;
   border-radius:10px;
+}
+.login-div{
+    display:flex;
+}
+.all{
+    margin-top:50px;
+}
+.div-location input{
+    margin-bottom:50px;
+    width:280px;
+    height:40px;
+    border:2px solid black;
+    border-radius:10px;
+}
+.div-chkin input{
+    width:225px;
+    height:40px;
+    border:2px solid black;
+    border-radius:10px;
+}
+.div-chkout input{
+    width:225px;
+    height:40px;
+    border:2px solid black;
+    border-radius:10px;
+}
+.login-box i{
+    position:absolute;
+    top:65px;
+    margin-left:10px;
+}
+.bt i{
+    position:absolute;
+    top:8px;
+    left:-3px;
+}
+.label-i{
+    position:absolute;
+    top:30px;
+    left:350px;
+}
+.label-o{
+    position:absolute;
+    top:30px;
+    right: 290px;
+}
+.label-c{
+    position:absolute;
+    top:30px;
+   left: 50px;
+}
+.div-chkin{
+    margin-left:10px;
+}
+.div-chkout{
+   margin-left:10px; 
+}
+.div-location{
+   margin-left:40px; 
+}
+.second {
+  position: relative;
+}
+.name {
+  position: absolute;
+  top: 50px; 
+  left: 50%;
+  transform: translateX(-50%) translateY(50%);
+  text-align: center;
+  z-index: 2;
+  color: white;
 }
