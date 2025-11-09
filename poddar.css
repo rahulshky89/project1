@@ -2,6 +2,11 @@ body{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     margin: 0;
    
+
+  background:#f6f7fb;
+  padding: 24px;
+
+   
 }
 .menu{
     background-color: black;
@@ -130,4 +135,31 @@ height: 20rem;
 .stay{
     margin-left:10px;
     margin-bottom:30px;
+}
+.fa-heart{
+
+    margin-left:100px;
+    
+}
+.left-nav{
+    width:300px;
+}
+.fa-user{
+    margin-left:40px;
+    margin-right:40px;
+    
+}
+.list{
+width:120px;
+height:25px;
+border:2px solid black;
+border-radius:10px;
+}
+img{
+    height:auto;
+    width:250px;
+}
+.images{
+    display:flex;
+    flex-wrap: wrap;
 }
