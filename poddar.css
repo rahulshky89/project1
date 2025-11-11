@@ -92,6 +92,7 @@ body {
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   z-index: 10;
   position: relative;
+  
 }
 
 .login-div {
@@ -207,4 +208,21 @@ body {
 }
 .label-i{
     margin-left:10px;
+}
+.div-locationall{
+  width: 1rem;
+
+}
+.next{
+  background-color:orangered ;
+  width: 100px;
+  height: 25px;
+  margin-left: 40rem;
+  border-radius: 5px;
+  margin-top: 100px;
+  opacity: 1;
+  font-weight: 100px;
+}
+.next:hover{
+  opacity: 1.25;
 }
