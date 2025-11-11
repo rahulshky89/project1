@@ -92,10 +92,12 @@ html,body {
 
 
 .login-box {
-  background: white;
+  background: rgba(255, 255, 255, 0.5);
   border-radius: 1rem;
-  max-width: 900px;
-  margin: -4rem auto 3rem;
+  height:150px;
+  width:1000px;
+  margin-top:10px;
+  margin-left:16rem;
   padding: 1.5rem;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   z-index: 10;
@@ -124,12 +126,13 @@ html,body {
 
 .bt {
   background-color: #ff4500;
+  margin-left:10px;
   color: white;
   border: none;
   padding: 0.6rem 1.5rem;
   border-radius: 0.5rem;
   cursor: pointer;
-  align-self: center;
+  /* align-self: center; */
 }
 
 /* ---------- Icons inside input ---------- */
@@ -154,7 +157,9 @@ html,body {
     height: 230px;
   }
   .login-box {
-    max-width: 700px;
+    max-width: 3000px;
+     
+    padding: 1rem;
   }
 }
 
@@ -176,10 +181,6 @@ html,body {
     height: 200px;
   }
 
-  .login-box {
-    margin: 1rem;
-    padding: 1rem;
-  }
 
   .login-div {
     flex-direction: column;
@@ -198,8 +199,8 @@ html,body {
   }
 }
 #check{
-    width:100px;
-    margin-left:100px;
+    width:150px;
+    margin-left:5px;
 }
 #checkout{
     width:150px;
@@ -214,7 +215,8 @@ html,body {
     width:50px;
 }
 .label-i{
-    margin-left:10px;
+    margin-left:70px;
+    margin-top:11px;
 }
 
 /* footer code */
@@ -361,4 +363,25 @@ html,body {
 }
 .content{
   flex:1;
+}
+#location{
+  width:225px;
+}
+
+.div-chkin{
+  width:80px;
+  margin-left:5px;
+  padding:0;
+}
+.label-o{
+  margin-left:70px;
+  margin-top:11px;
+  
+}
+.label-c{
+  margin-top:11px;
+}
+.fa-user{
+   text-decoration: none;
+  color: black;
 }
