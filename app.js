@@ -5,6 +5,7 @@ const path=require("path");
 const mongoose=require("mongoose");
 const listing = require("./models/mode.js");
 const Property=require("./models/propertySchema.js");
+const properties = require("./init/data.js");
 // const properties = require("./init/data.js");  // yaha tumhara data file import hoga
 
 const port=8080;
@@ -35,11 +36,20 @@ app.get("/",function(req,res){
 app.get("/explore",async function(req,res){
     
         const properties= await Property.find({});
-       console.log(properties[0]);
+       console.log("property model is  working");
     
    res.render("listing/explore",{properties});
 
 });
 
+//see full details route
+app.get("/list/:id",async function(req,res){
+   const { id } = req.params;
+    console.log(id);
+    
+  const property=await Property.findById(id)
+  
+    res.render("listing/show",{property});
+})
 
 

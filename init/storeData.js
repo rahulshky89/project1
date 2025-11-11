@@ -15,7 +15,7 @@ async function addData(){
     await property.deleteMany({});
   let result=  await property.insertMany(properties);
 
-console.log(result[0].images[0]);
+console.log("data is succesfully stored");
 };
 
 addData();
