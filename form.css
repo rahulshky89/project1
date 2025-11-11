@@ -78,7 +78,7 @@ form{
     gap: 17px;
 }
 input, select, textarea{
-    width: 100%;
+    width: 80%;
     border: 1.5px solid #bdbdbd;
     border-radius: 0 20px 0 20px;
     padding: 13px 14px;
