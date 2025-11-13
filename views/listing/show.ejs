@@ -44,8 +44,10 @@
           <span class="badge bg-danger">Booked</span>
         <% } %>
       </p>
-
-      <a href="/explore" class="btn btn-secondary mt-3">Back to Explore</a>
+       <form method ="post" action="/search/<%=property._id%>">
+        <button class="btn btn-secondary mt-3">Go Ahead</button>
+       </form>
+      <!-- <a href="#" class="btn btn-secondary mt-3"></a> -->
 
     </div>
   </div>

@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= user.name %> | Profile</title>
+  <link rel="stylesheet" href="/CSS/profile.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+<h2>Your Bookings</h2>
+
+<% bookings.forEach(b => { %>
+  <div class="card mb-3 p-3 shadow">
+    <h4><%= b.property.title %></h4>
+    <p>Location: <%= b.property.location %></p>
+    <p>Booked on: <%= b.bookedAt.toDateString() %></p>
+
+    <form action="/cancel-booking/<%= b._id %>" method="POST">
+      <button class="btn btn-danger">Cancel Booking</button>
+    </form>
+  </div>
+<% }) %>
+
+</body>
+</html>
+

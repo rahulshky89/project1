@@ -385,3 +385,23 @@ html,body {
    text-decoration: none;
   color: black;
 }
+/* get button in search */
+.getbtn{
+   color: rgb(255, 255, 255) !important;
+  margin-left:30px;
+  width:100px;
+  background-color: rgb(30, 28, 28) !important;
+};
+
+/* password verification popup */
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+  z-index: 1000;
+}

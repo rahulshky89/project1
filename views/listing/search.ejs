@@ -46,7 +46,34 @@
       </p>
 
       <a href="/explore" class="btn btn-secondary mt-3">Back to Explore</a>
+      <a href="#" class="btn getbtn  mt-3" onclick="openpopup('<%=property._id%>')">Get</a>
 
+      <!-- password check popup form -->
+       <div id="passwordPopup" class="popup" style="display:none">
+  <form id="passwordForm" method="POST">
+    <h3>Confirm your password</h3>
+    <input type="password" name="password" placeholder="Enter password" required>
+    <br>
+    <button type="submit" class="btn btn-success mt-2">Confirm</button>
+    <button type="button" class="btn btn-secondary mt-2" onclick="closePopup()">Cancel</button>
+  </form>
+</div>
+<!-- function for password popup apply -->
+<script>
+    function openpopup(property){
+      const popup=document.getElementById("passwordPopup");
+      popup.style.display="block";
+
+      const form=document.getElementById("passwordForm");
+      form.action=`/get/${property}`
+
+    }
+
+    function closePopup(){
+      const popup=document.getElementById("passwordPopup");
+      popup.style.display="none";
+    }
+</script>
     </div>
   </div>
 

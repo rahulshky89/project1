@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Dashboard | StayScape</title>
+  <link rel="stylesheet" href="/CSS/dashboard.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <div class="dashboard-container">
+    
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="brand">
+        <i class="fa-solid fa-house-chimney"></i>
+        <span>StayScape</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="/dashboard" class="active"><i class="fa-solid fa-gauge-high"></i> Dashboard</a></li>
+        <li><a href="/profile"><i class="fa-solid fa-user"></i> Profile</a></li>
+        <li><a href="/bookings"><i class="fa-solid fa-clipboard-list"></i> My Bookings</a></li>
+        <li><a href="/"><i class="fa-solid fa-building"></i> Home</a></li>
+        <li><a href="/logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <header>
+        <h2>Welcome, <%= user.name %> 👋</h2>
+        <p>Your personalized dashboard overview</p>
+      </header>
+
+      <section class="cards">
+        <div class="card">
+          <i class="fa-solid fa-house-user"></i>
+          <h3>Your Bookings</h3>
+          <p>2 Active Stays</p>
+        </div>
+
+        <div class="card">
+          <i class="fa-solid fa-heart"></i>
+          <h3>Saved Properties</h3>
+          <p>4 Favorites</p>
+        </div>
+
+        <div class="card">
+          <i class="fa-solid fa-bell"></i>
+          <h3>Notifications</h3>
+          <p>3 New Alerts</p>
+        </div>
+
+        <div class="card">
+          <i class="fa-solid fa-user-gear"></i>
+          <h3>Profile Status</h3>
+          <p>Complete your details</p>
+        </div>
+      </section>
+
+      <section class="recent">
+        <h3>Recently Viewed Properties</h3>
+        <div class="recent-grid">
+          <div class="recent-card">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" alt="">
+            <div class="info">
+              <h4>PG for Boys - Mansarovar</h4>
+              <p>₹5500/month</p>
+            </div>
+          </div>
+
+          <div class="recent-card">
+            <img src="https://images.unsplash.com/photo-1586105251261-72a756497a12" alt="">
+            <div class="info">
+              <h4>Girls Hostel - Gopalpura</h4>
+              <p>₹6000/month</p>
+            </div>
+          </div>
+
+          <div class="recent-card">
+            <img src="https://images.unsplash.com/photo-1600585154154-711ccc26a6a5" alt="">
+            <div class="info">
+              <h4>Cozy Studio Flat</h4>
+              <p>₹7500/month</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

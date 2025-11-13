@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= user.name %> | Profile</title>
+  <link rel="stylesheet" href="/CSS/profile.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+  <div class="profile-wrapper">
+    
+    <!-- Sidebar (reuse from dashboard style) -->
+    <aside class="sidebar">
+      <div class="brand">
+        <i class="fa-solid fa-house-chimney"></i>
+        <span>StayScape</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="/dashboard"><i class="fa-solid fa-gauge"></i> Dashboard</a></li>
+        <li><a href="/profile" class="active"><i class="fa-solid fa-user"></i> Profile</a></li>
+        <li><a href="/bookings"><i class="fa-solid fa-list"></i> My Bookings</a></li>
+        <li><a href="/explore"><i class="fa-solid fa-building"></i> Explore</a></li>
+        <li><a href="/logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="profile-main">
+      <section class="header-section">
+        <div class="profile-info">
+          <div class="avatar">
+            <img src="https://ui-avatars.com/api/?name=<%= user.name %>&background=2563eb&color=fff" alt="Profile Picture">
+          </div>
+          <div>
+            <h2><%= user.name %></h2>
+            <p><%= user.userType === 'owner' ? 'Property Owner' : 'Customer' %></p>
+          </div>
+        </div>
+        <button class="edit-btn"><i class="fa-solid fa-pen"></i> Edit Profile</button>
+      </section>
+
+      <section class="details-grid">
+        <div class="detail-card">
+          <h4><i class="fa-solid fa-envelope"></i> Email</h4>
+          <p><%= user.email %></p>
+        </div>
+        <div class="detail-card">
+          <h4><i class="fa-solid fa-phone"></i> Phone</h4>
+          <p><%= user.phone %></p>
+        </div>
+        <div class="detail-card">
+          <h4><i class="fa-solid fa-calendar"></i> Member Since</h4>
+          <p>July 2024</p>
+        </div>
+        <div class="detail-card">
+          <h4><i class="fa-solid fa-user-tag"></i> User Type</h4>
+          <p><%= user.userType %></p>
+        </div>
+      </section>
+
+      <section class="about-section">
+        <h3>About You</h3>
+        <p>
+          Hey <%= user.name.split(" ")[0] %> 👋, welcome to StayScape!  
+          Here you can manage your bookings, explore new properties, and customize your profile settings.
+        </p>
+      </section>
+
+      <section class="action-buttons">
+        <button class="btn primary"><i class="fa-solid fa-key"></i> Change Password</button>
+        <button class="btn secondary"><i class="fa-solid fa-trash"></i> Delete Account</button>
+      </section>
+    </main>
+
+  </div>
+</body>
+</html>
