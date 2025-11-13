@@ -13,6 +13,9 @@ const session=require("express-session");
 
 // const properties = require("./init/data.js");  // yaha tumhara data file import hoga
 
+
+//post delete
+
 const port=8080;
 //session midleware
 app.use(session({
@@ -31,6 +34,8 @@ let isLogin=function(req,res,next){
     next();
 };
 //islogin function end
+
+//EJS, Static files, Body Parser
 app.engine("ejs",ejsmate);
 app.set("view engine", "ejs");
 app.set("views", "./views");
@@ -216,4 +221,29 @@ app.get("/bookings", isLogin, async function(req, res) {
     user: user,
     bookings: user.bookings 
   });
+});
+
+//get cancel page
+app.get("")
+
+//cancel route
+app.post("/cancel-booking/:id", isLogin, async (req, res) => {
+  const booking = await Booking.findById(req.params.id);
+  if (!booking) return res.redirect("/my-bookings");
+
+  const user = await User.findById(req.session.user.id);
+  const property = await Property.findById(booking.property);
+
+  // remove from user's bookings list
+  user.bookings = user.bookings.filter(b => b.toString() !== booking._id.toString());
+  await user.save();
+
+  // mark property available again
+  property.available = true;
+  await property.save();
+
+  // delete booking
+  await Booking.findByIdAndDelete(booking._id);
+
+  res.send("<script>alert('Booking Cancelled'); window.location.href='/dashboard';</script>");
 });
