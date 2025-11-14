@@ -1,28 +1,57 @@
+//  Express import kiya
+// app banaya — ye hi main server object hai.
 const express=require("express");
 const app=express();
+
+// ejs-mate layout engine — header/footer ko include karne ke liye.
 const ejsmate=require("ejs-mate");
+
+//  File paths handle karne ke liye built-in module.
 const path=require("path");
+
+//mongoose ko connect krna
 const mongoose=require("mongoose");
+
+//databases connectins
 const listing = require("./models/mode.js");
 const Property=require("./models/propertySchema.js");
 const properties = require("./init/data.js");
 const User = require("./models/userSchema.js");
 const Booking = require("./models/bookingSchema.js");
+
+//password ko hash krna
 const bcrypt = require("bcrypt");
+
+//user ko session s login krwana aur store  rkhna
 const session=require("express-session");
+
+//custom error k liye class express ko require krna
+const expresserror=require("./utilis/expresserror.js");
+
+//ab jab user sessionm store hua h to usse mongoDB m store karaa d taaki baar baar hate na
+const Mongostore=require("connect-mongo");
 
 // const properties = require("./init/data.js");  // yaha tumhara data file import hoga
 
-
-//post delete
+//mongo-connect session is connect for  mongoDB for using liberary of connect-mongo
+const store=Mongostore.create({
+  mongoUrl:"mongodb://127.0.0.1:27017/myDB",
+  crypto:{
+    secret:"TripleCore",
+  },
+   touchAfter:12*3600
+})
 
 const port=8080;
 //session midleware
 app.use(session({
+  store:store,
     secret:"TripleCore",
     resave:false,
     saveUninitialized:false,
-    cookie:{maxAge:1000*60*60*48}
+    cookie:{
+      httpOnly:true,
+      maxAge:1000*60*60*24*7}
 }));
 //session middleware-end
 
@@ -46,10 +75,6 @@ app.use(express.urlencoded({extended:true}));
 async function main(){
     await  mongoose.connect("mongodb://127.0.0.1:27017/myDB");
 }
-
-main().then(function(){
-    console.log("mongoDB is started");
-});
 
 
 app.listen(port,function(){
@@ -81,6 +106,9 @@ app.get("/list/:id",async function(req,res){
 //search route
 app.post("/search", async function(req,res){
     let result=req.body.location;
+    let {checkin}=req.body;
+
+    console.log(checkin);
     
     try{let property =await Property.findOne({location:result});
     console.log(property);
@@ -97,20 +125,20 @@ app.get("/signup",function(req,res){
 });
 //sign-up
 app.post("/signup",async function(req,res){
+
      const { name, email, phone, password, userType } = req.body;
      const hashPass= await bcrypt.hash(password,10);
 
       await User.create({
-        name,
-        email,
-        phone,
-        password:hashPass,
-        userType
-    });
+  name: name,
+  email: email,
+  phone: phone,
+  password: hashPass,
+  userType: userType
+});
 
       res.redirect("/login");
 });
-
 //log-in route rendring
 
 app.get("/login",function(req,res){
@@ -141,6 +169,7 @@ app.post("/login",async function(req,res){
     req.session.user={
     id: user._id,
     name: user.name,
+    phone:user.phone,
     email: user.email,
     type: user.userType
     };
@@ -197,6 +226,7 @@ app.post("/get/:id",isLogin,async function(req,res){
     }
      res.send("<script>alert('✅ Booking confirmed!'); window.location.href='/dashboard';</script>");
 });
+
 //explore search get
 
 app.post("/search/:id", async function(req,res){
@@ -223,8 +253,7 @@ app.get("/bookings", isLogin, async function(req, res) {
   });
 });
 
-//get cancel page
-app.get("")
+
 
 //cancel route
 app.post("/cancel-booking/:id", isLogin, async (req, res) => {
@@ -246,4 +275,18 @@ app.post("/cancel-booking/:id", isLogin, async (req, res) => {
   await Booking.findByIdAndDelete(booking._id);
 
   res.send("<script>alert('Booking Cancelled'); window.location.href='/dashboard';</script>");
+});
+//error middlleware
+app.use((err, req, res, next) => {
+  console.error("ERROR HANDLER:", err);
+
+  if (res.headersSent) {
+    return next(err);
+  }
+
+  res.status(err.status || 500);
+
+
+  return res.render("listing/error", {message: err.message });
+  
 });

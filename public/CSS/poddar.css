@@ -126,7 +126,7 @@ html,body {
 
 .bt {
   background-color: #ff4500;
-  margin-left:10px;
+  margin-left:50px;
   color: white;
   border: none;
   padding: 0.6rem 1.5rem;
@@ -199,11 +199,12 @@ html,body {
   }
 }
 #check{
-    width:150px;
+    width:180px;
     margin-left:5px;
 }
 #checkout{
-    width:150px;
+
+    width:180px;
     
 }
 .label-in{
@@ -212,10 +213,10 @@ html,body {
    
 }
 .div-chkout{
-    width:50px;
+    width:40px;
 }
 .label-i{
-    margin-left:70px;
+    margin-left:50px;
     margin-top:11px;
 }
 
@@ -369,12 +370,12 @@ html,body {
 }
 
 .div-chkin{
-  width:80px;
+  width:50px;
   margin-left:5px;
   padding:0;
 }
 .label-o{
-  margin-left:70px;
+  margin-left:55px;
   margin-top:11px;
   
 }
