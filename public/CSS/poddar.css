@@ -406,3 +406,50 @@ html,body {
   box-shadow: 0 5px 20px rgba(0,0,0,0.3);
   z-index: 1000;
 }
+.review-div{
+  height:50vh;
+  width:100vw;
+  display:flex;
+  justify-content: center;
+}
+.review-div div{
+  margin-right: 650px;
+  margin-top: 30px;
+  width:500px;
+  justify-items: center;
+}
+/* card-style-review */
+.review-card {
+  width: 60%;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+  transition: all 0.3s ease;
+  border-left: 6px solid #6c63ff; /* Accent border */
+}
+
+.review-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18);
+}
+
+.review-card h3 {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.review-card h5 {
+  font-size: 17px;
+  margin-bottom: 10px;
+}
+
+.stars {
+  font-size: 22px;
+  color: #ffb300;
+  margin-top: 5px;
+}
+
+
+

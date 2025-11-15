@@ -1,4 +1,6 @@
 const mongoose = require("mongoose");
+const Review=require("./review");
+const Schema = mongoose.Schema;
 
 const propertySchema = new mongoose.Schema({
     owner: { type:String },
@@ -11,7 +13,8 @@ const propertySchema = new mongoose.Schema({
     amenities: [String],                              // e.g ["WiFi","Parking","Laundry"]
     images: [String],                                 // URLs or filenames
     available: { type: Boolean, default: true },      // Booked hai ya available
-    createdAt: { type: Date, default: Date.now }
+    createdAt: { type: Date, default: Date.now },
+    reviews:[{type:Schema.Types.ObjectId,ref:"Review"}]
 });
 
 module.exports = mongoose.model("property", propertySchema);

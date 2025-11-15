@@ -1,0 +1,136 @@
+body{
+    margin: 0;
+    font-family: "Outfit", sans-serif;
+    background: linear-gradient(135deg,#dbefff,#f6fbff);
+    background-attachment: fixed;
+    display: fixed;
+    flex-direction: column;
+    align-items: center;
+}
+.div{
+    background: rgba(255,255,255,0.95);
+    margin-top: 80px;
+    padding: 30px 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0 ,0,0,0.15);
+    width: 90%;
+    max-width: 420px;
+    animation: fadeln 0.8s ease;
+    margin-left: 490px;
+    margin-bottom: 80px;
+}
+nav{
+    width: 100%;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+nav.logo{
+    font-size: 22px;
+    font-weight: 700;
+    color: #004e8a;
+}
+nav ul{
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    margin: 0;
+
+}
+nav ul li {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+nav ul li a:hover{
+    color: #004e8a;
+}
+h1{
+    text-align: center;
+    color: #004e8a;
+    margin-bottom: 20px;
+}
+label{
+    display: block;
+    margin: 10px 0 5px;
+    color: #004e8a;
+    font-weight: 600;
+}
+ input,
+ select,
+ textarea{
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+  background-color: #f9fcff;
+}
+input:focus, select:focus,textarea:focus{
+    border-color: #0077cc;
+    box-shadow: 0 0 6px rgba(0, 119,204,0.3);
+    outline: none;
+    background-color: #ffffff;
+
+}
+
+
+.btn{
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg,#0077cc, #004e8a) ;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 17px;
+  cursor: pointer;
+  transition: all o.3s ease;
+
+}
+.btn:hover{
+    transform: scale(1.03);
+    background: linear-gradient(135deg,#0088ff,#005fa3);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+@media (max-width:600px){
+    nav{
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+    }
+    .div{
+        padding: 20px;
+    }
+    h1{
+        font-size: 22px;
+
+    }
+
+}
+@keyframes fadeln{
+    from{opacity: 0; transform:translateY(20px);}
+    to{
+        opacity: 1;
+        transform:translate Y(0)
+    }
+}
+.signup{
+    margin-left:50px;
+}
+.lists{
+    margin-right:80px;
+    color:white;
+   background-color: #333;
+    width:100px;
+    height:30px;
+    border:2px solid black;
+    border-radius:5px;
+}

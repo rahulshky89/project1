@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form2</title>
+    <link rel="stylesheet" href="/CSS/form2.css">
+        <link rel="stylesheet" href="/CSS/poddar.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+ <div class="nav">
+            <div class="stayScape"><i class="fa-solid fa-house-chimney-window chimney"></i><p class="stay">StayScape</p></div>
+              <div class="icons">
+                 <a class="Explore" href="/">Home</a>
+                <a class="Explore" href="/explore">Explore</a>
+                <a class="Destinations" href="#">Destinations</a>
+                <a class="About" href="/dashboard">My Account</a>
+              </div>
+
+            <div class="left-nav">
+                <i class="fa-solid fa-heart"></i>
+               <a href="/signup"> <i class="fa-solid fa-user"></i></a>
+                <form method="GET" action="/owner">
+                    <button class="lists">List Property</button>
+                </form>
+            </div>
+        </div>
+ 
+     <div>
+    
+ 
+     <div>
+        <div class="div">
+          <h1>
+           Add your property
+        </h1>
+ 
+     
+       <form action="/add-property" method="POST">
+
+  <!-- Owner -->
+  <label>Owner Name</label>
+  <input type="text" name="owner" required>
+
+  <!-- Title -->
+  <label>Title</label>
+  <input type="text" name="title" required>
+
+  <!-- Type -->
+  <label>Type</label>
+  <select name="type" required>
+    <option value="PG">PG</option>
+    <option value="Hostel">Hostel</option>
+    <option value="Room">Room</option>
+    <option value="Flat">Flat</option>
+  </select>
+
+  <!-- Location -->
+  <label>Location</label>
+  <input type="text" name="location" required>
+
+  <!-- Description -->
+  <label>Description</label>
+  <textarea name="description"></textarea>
+
+  <!-- Price -->
+  <label>Monthly Rent (₹)</label>
+  <input type="number" name="price" required>
+
+  <!-- Guests Allowed -->
+  <label>Guests Allowed</label>
+  <input type="number" name="guestsAllowed" required>
+
+  <!-- Amenities -->
+  <label>Amenities (comma separated)</label>
+  <input type="text" name="amenities" placeholder="Gym,WiFi,Laundry">
+
+  <!-- Images (comma separated URLs) -->
+  <label>Image URLs (comma separated)</label>
+  <input type="text" name="images" placeholder="https://img1.jpg, https://img2.png">
+
+  <!-- Available -->
+  <label>
+    <input type="checkbox" name="available" checked>
+    Available
+  </label>
+
+  <button type="submit">Add Property</button>
+</form>
+
+
+      </div>
+       
+        <!-- <img src="form3.png" class="img1"> -->
+       
+        <!--<img src="form14.webp" class="img3">  -->
+     
+
+
+  <%-include("../includes/footer.ejs")%>
+    
+</body>
+</html>

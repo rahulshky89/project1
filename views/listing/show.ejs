@@ -11,11 +11,9 @@
 <body>
  
 <%- include("../includes/navbar.ejs") %>
-
 <div class="container my-5">
 
   <div class="row">
-
     <!-- Image -->
     <div class="col-md-6">
       <img src="<%= property.images.length ? property.images[0] : 'https://via.placeholder.com/600x350?text=No+Image' %>"
@@ -53,7 +51,47 @@
   </div>
 
 </div>
+  <hr>
+<div class="col-8 offset-3">
+  <h4>Leave Review</h4>
+
+  <form method="POST" action="/list/<%=property._id%>/review" novalidate class="needs-validation">
+    <div class="mb-3 mt-3">
+      <label for="rating" class="form-label m">Rating</label>
+      <input min="1" max="5" type="range" id="rating" name="review[rating]" class="form-range ">
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="comment" class="form-label">Comment</label>
+      <textarea name="review[comment]" id="comment" cols="30" rows="3" class="form-control" required></textarea>
+    </div>
+    <button class="bt btn-outline-dark">Submit</button>
+  </form>
+</div>
+<hr>
+<%for(let i=0;i<property.reviews.length;i++){%>
+
+ <div class="review-card">
+    <h3><%= property.title %></h3>
+    <h5>Comment: <%= property.reviews[i].comment %></h5>
+
+    <% let rating = property.reviews[i].rating; %>
+
+    <% if (rating == 1) { %>
+        <div class="stars">⭐</div>
+    <% } else if (rating == 2) { %>
+        <div class="stars">⭐⭐</div>
+    <% } else if (rating == 3) { %>
+        <div class="stars">⭐⭐⭐</div>
+    <% } else if (rating == 4) { %>
+        <div class="stars">⭐⭐⭐⭐</div>
+    <% } else if (rating == 5) { %>
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+    <% } %>
+</div>
+<%}%>
+
  <%- include("../includes/footer.ejs") %>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/js/validation.js"></script>
 </body>
 </html>

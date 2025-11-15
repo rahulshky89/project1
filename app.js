@@ -3,8 +3,12 @@
 const express=require("express");
 const app=express();
 
+
 // ejs-mate layout engine — header/footer ko include karne ke liye.
 const ejsmate=require("ejs-mate");
+
+//wrap error handle require
+const Wrap=require("./utilis/wrapError.js");
 
 //  File paths handle karne ke liye built-in module.
 const path=require("path");
@@ -13,11 +17,12 @@ const path=require("path");
 const mongoose=require("mongoose");
 
 //databases connectins
+const reviewSchema = require("./models/joiSchema.js");
 const listing = require("./models/mode.js");
 const Property=require("./models/propertySchema.js");
-const properties = require("./init/data.js");
 const User = require("./models/userSchema.js");
 const Booking = require("./models/bookingSchema.js");
+const Review=require("./models/review.js");
 
 //password ko hash krna
 const bcrypt = require("bcrypt");
@@ -40,7 +45,15 @@ const store=Mongostore.create({
     secret:"TripleCore",
   },
    
-})
+});
+//joi middleware
+const joivalidate=function(req,res,next){
+  const result=reviewSchema.validate(req.body.review);
+  if(result.error){
+    return res.status(400).send(error.details[0].message);
+  };
+  next();
+}
 
 const port=8080;
 //session midleware
@@ -101,7 +114,7 @@ app.get("/list/:id",async function(req,res){
    const { id } = req.params;
     console.log(id);
     
-  const property=await Property.findById(id)
+  const property=await Property.findById(id).populate("reviews");
   
     res.render("listing/show",{property});
 })
@@ -200,10 +213,15 @@ app.post("/get/:id",isLogin,async function(req,res){
     const user=await User.findById(req.session.user.id);
       const property=await Property.findById(id);
       console.log("this is a user property",property);
-    const compare=await bcrypt.compare(password,user.password);
+ 
 
     if(!user || !property){
         return res.redirect("/login");
+    }
+    //compare password
+    const compare = await bcrypt.compare(password, user.password);
+    if (!compare) {
+      return res.send("<script>alert('❌ Wrong password!'); window.history.back();</script>");
     }
     //booking check
     if(!property.available){
@@ -278,6 +296,46 @@ app.post("/cancel-booking/:id", isLogin, async (req, res) => {
 
   res.send("<script>alert('Booking Cancelled'); window.location.href='/dashboard';</script>");
 });
+
+//post review route
+
+app.post("/list/:id/review",joivalidate,async function(req,res){
+  const {id}=req.params;
+  const property=await Property.findById(id);
+  const Reviews=new Review(req.body.review);
+  
+  property.reviews.push(Reviews);
+    await property.save();
+    await Reviews.save();
+    
+   res.redirect(`/list/${id}`);
+})
+//owner post
+app.post("/add-property",isLogin,async function(req,res){
+  const { owner,title, location, type, price,description,guestsAllowed,amenities,images } = req.body;
+   const property= new Property({
+         owner:owner,
+         title:title,
+         location:location,
+         type:type,
+         price:price,
+         description:description,
+         guestsAllowed:guestsAllowed,
+         amenities:amenities ? amenities.split(","):[],
+         images:images ? images.split(",") : []
+   });
+
+   await property.save();
+
+   
+   
+res.send("<script>alert('your property was succesfully add WOW !!'); window.location.href='/explore';</script>");
+
+});
+//owner listing route
+app.get("/owner",isLogin,function(req,res){
+    res.render("listing/owner");
+});
 //error middlleware
 app.use((err, req, res, next) => {
   console.error("ERROR HANDLER:", err);
@@ -285,10 +343,10 @@ app.use((err, req, res, next) => {
   if (res.headersSent) {
     return next(err);
   }
-
+  
   res.status(err.status || 500);
 
-
+  
   return res.render("listing/error", {message: err.message });
   
 });
