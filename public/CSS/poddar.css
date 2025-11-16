@@ -2,9 +2,11 @@
 html,body {
   font-family: 'Trebuchet MS', Arial, sans-serif;
   margin: 0;
-  background: #f6f7fb;
    height: 100%;
    padding-top: 40px;
+   background: #c5bcbc;
+            color: #fff ;
+              overflow-x: hidden;
 }
 
 .nav {
@@ -98,9 +100,10 @@ html,body {
   width:1000px;
   margin-top:10px;
   margin-left:16rem;
+   margin-bottom:8rem;
   padding: 1.5rem;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  z-index: 10;
+  /* z-index: 10; */
   position: relative;
 }
 
@@ -306,7 +309,7 @@ html,body {
   margin-bottom: 12px;
   color: #ffffff;
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 1200;
 }
 
 .footer-section p,
@@ -450,6 +453,153 @@ html,body {
   color: #ffb300;
   margin-top: 5px;
 }
+/* scrolling css */
+.container{
+  margin-top:100px;
+}
+/* HERO SECTION */
+        #hero {
+            background-image: url('https://images.unsplash.com/photo-1505692794400-1b0e5f01d80b?auto=format&fit=crop&w=1500&q=80');
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.6);
+        }
 
+        #hero .hero-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
 
+        #hero h1 {
+            font-size: 6vw;
+            font-weight: 900;
+            text-transform: uppercase;
+            color:black;
+        }
 
+        #hero p {
+            font-size: 1.5vw;
+            margin-top: 20px;
+            opacity: 0.85;
+        }
+        /* ABOUT STAYSCAPE */
+        #about {
+            padding: 120px 100px;
+            background: #938e8e;
+        }
+
+        #about h2 {
+            font-size: 3.5vw;
+            font-weight: 800;
+        }
+
+        #about p {
+            font-size: 1.2vw;
+            margin-top: 25px;
+            opacity: 0.85;
+            line-height: 1.6;
+        }
+        /* FEATURES SECTION */
+        #features {
+            padding: 120px;
+            background: #938e8e;
+        }
+
+        #features h2 {
+            font-size: 3vw;
+            text-align: center;
+            margin-bottom: 60px;
+            font-weight: 800;
+        }
+
+        .feature-box {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .feature {
+            width: 32%;
+            padding: 40px;
+            background: rgba(161, 139, 139, 0.08);
+            border-radius: 25px;
+            backdrop-filter: blur(15px);
+            opacity: 0;
+            transform: translateY(100px);
+        }
+
+        .feature h3 {
+            font-size: 1.8vw;
+            margin-bottom: 15px;
+        }
+
+        .feature p {
+            opacity: 0.85;
+        }
+        /* TEAM SECTION */
+        #team {
+            padding: 170px 120px;
+            background:#938e8e;
+        }
+
+        #team h2 {
+            font-size: 3.5vw;
+            margin-bottom: 40px;
+        }
+
+        .team-box {
+          height:250px;
+            display: flex;
+            gap: 40px;
+          
+        }
+
+        .member {
+            width: 32%;
+            padding: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            transform: translateY(150px);
+            opacity: 0;
+        }
+
+        .member h3 {
+            font-size: 2vw;
+            margin-bottom: 10px;
+        }
+
+        .leader {
+            background: rgba(0, 200, 255, 0.2);
+            border: 2px solid #00eaff;
+        }
+        /* CONTACT SECTION */
+        #contact {
+            height: 60vh;
+            background: #938e8e;
+            text-align: center;
+            padding-top: 100px;
+        }
+
+        #contact h2 {
+            font-size: 3vw;
+        }
+
+        #contact p {
+            margin-top: 20px;
+            opacity: 0.75;
+        }
+         * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        .need-footer{
+          margin-top:-100px;
+          height:1000px;
+          width:100vw;
+        }

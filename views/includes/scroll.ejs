@@ -1,0 +1,203 @@
+
+
+<div id="smooth-wrapper">
+<div id="smooth-content">
+
+    <!-- HERO -->
+    <section class="section" id="hero">
+        <div class="hero-text">
+            <h1>STAYSCAPE</h1>
+            <p>Your Trusted Platform for Rooms, PGs, Flats & Hostels</p>
+        </div>
+    </section>
+
+    <!-- ABOUT STAYSCAPE -->
+    <section id="about">
+        <h2>About Stayscape</h2>
+        <p>
+            Stayscape is a modern rental platform designed for students and working professionals.  
+            Our goal is to provide verified, affordable and comfortable rental spaces like Rooms, PGs, Flats & Hostels.  
+            Stayscape helps you connect directly with owners, avoiding brokerage and saving money.  
+            With detailed property information, images, prices and amenities — finding the perfect stay becomes effortless.
+        </p>
+    </section>
+
+    <!-- FEATURES -->
+    <section id="features">
+        <h2>Why Choose Stayscape?</h2>
+
+        <div class="feature-box">
+            <div class="feature">
+                <h3>✔ Zero Brokerage</h3>
+                <p>Connect directly with owners. Pay no extra fees, save money.</p>
+            </div>
+
+            <div class="feature">
+                <h3>✔ Verified Properties</h3>
+                <p>All listings include real details, photos, amenities and safety info.</p>
+            </div>
+
+            <div class="feature">
+                <h3>✔ Student-Friendly</h3>
+                <p>Specially designed for college students & newcomers shifting to a new city.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAM SECTION -->
+    <section id="team">
+        <h2>Meet Our Team</h2>
+
+        <div class="team-box">
+            <div class="member leader">
+                <h3>Rahul Shakya</h3>
+                <p>Team Leader • Full-Stack Developer • Project Manager</p>
+            </div>
+
+            <div class="member">
+                <h3>Vijay Sain</h3>
+                <p>Frontend Developer </p>
+            </div>
+
+            <div class="member">
+                <h3>Devendra Kachhawa</h3>
+                <p>• UI/UX Contributor</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="need-footer">
+        <footer class="main-footer">
+  <div class="footer-container">
+
+    <div class="footer-section">
+      <h2 class="logo">StayScape</h2>
+      <p class="footer-about">
+        Your trusted partner for finding PGs, Hostels & Rental Rooms. 
+        Comfortable living made simple.
+      </p>
+    </div>
+
+    <div class="footer-section">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/explore">Explore</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h3>Contact</h3>
+      <p>Email: rshakya6736@gmail.com / vijay6736@gmail.com
+      </p>
+      <p>Phone: +91 9653822330</p>
+      <p>Location: Jaipur, Rajasthan</p>
+    </div>
+
+     <div class="footer-section">
+      <h3>developers information</h3>
+      <p>Email: rshakya6736@gmail.com / vijay6736@gmail.com / devendrakachhawa508@gmail.com
+      </p>
+      <p>Phone: +91 9653822330 , 9057217209 , </p>
+      <p>Location: Jaipur, Rajasthan</p>
+    </div>
+
+    <div class="footer-section">
+      <h3>Devendra kachhawa</h3>
+      <div class="social-links">
+        <a href="https://www.instagram.com/kachhawa0029"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+        <a href="https://github.com/Devendrakachhawa"><i class="fa-brands fa-github"></i></a>
+        <a href="#"></a>
+      </div>
+    </div>
+
+    <div class="footer-section">
+      <h3>Rahul shakya</h3>
+      <div class="social-links">
+        <a href="https://www.instagram.com/rahul.shky"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+        <a href="https://github.com/rahulshky"><i class="fa-brands fa-github"></i></a>
+        <a href="#"></a>
+      </div>
+    </div>
+
+    <div class="footer-section">
+      <h3>Vijaysain</h3>
+      <div class="social-links">
+        <a href="https://www.instagram.com/vjaysain_"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+        <a href="https://github.com/vijaysain6736-alt"><i class="fa-brands fa-github"></i></a>
+        
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2025 StayScape — All Rights Reserved.
+  </div>
+</footer>
+    </div>
+
+</div>
+</div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+
+<script>
+    const scroll = new LocomotiveScroll({
+        el: document.querySelector("#smooth-content"),
+        smooth: true
+    });
+
+    scroll.on("scroll", ScrollTrigger.update);
+
+    ScrollTrigger.scrollerProxy("#smooth-content", {
+        scrollTop(value) {
+            return arguments.length ? scroll.scrollTo(value, 0, 0) : scroll.scroll.instance.scroll.y;
+        },
+        getBoundingClientRect() {
+            return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
+        }
+    });
+
+    // FEATURES Animation
+    gsap.utils.toArray(".feature").forEach((box, i) => {
+        gsap.to(box, {
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            delay: i * 0.2,
+            scrollTrigger: {
+                trigger: box,
+                scroller: "#smooth-content",
+                start: "top 80%",
+            }
+        });
+    });
+
+    // TEAM Animation
+    gsap.utils.toArray(".member").forEach((m, i) => {
+        gsap.to(m, {
+            y: 0,
+            opacity: 1,
+            duration: 1.2,
+            delay: i * 0.2,
+            scrollTrigger: {
+                trigger: m,
+                scroller: "#smooth-content",
+                start: "top 85%",
+            }
+        });
+    });
+
+    ScrollTrigger.addEventListener("refresh", () => scroll.update());
+    ScrollTrigger.refresh();
+</script>
