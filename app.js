@@ -35,10 +35,10 @@ const expresserror = require("./utilis/expresserror.js");
 // Mongo store
 const MongoStore = require("connect-mongo");
 
-// 🟣 DATABASE URL (Local + Render Compatible)
+// DATABASE URL (Local + Render Compatible)
 const dbURL = process.env.MONGO_URL || "mongodb://127.0.0.1:27017/myDB";
 
-// 📌 Session Store
+// session Store
 const store = MongoStore.create({
   mongoUrl: dbURL,
   crypto: { secret: "TripleCore" },
