@@ -42,8 +42,12 @@
           <span class="badge bg-danger">Booked</span>
         <% } %>
       </p>
-       <form method ="post" action="/search/<%=property._id%>">
-        <button class="btn btn-secondary mt-3">Go Ahead</button>
+       <form method="post" action="/get/<%=property._id%>">
+        <div class="mb-3">
+          <label for="password" class="form-label">Confirm Password to Book</label>
+          <input type="password" name="password" id="password" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Book Now</button>
        </form>
       <!-- <a href="#" class="btn btn-secondary mt-3"></a> -->
 
@@ -71,7 +75,6 @@
 <%for(let i=0;i<property.reviews.length;i++){%>
 
  <div class="review-card">
-    <h3 style="color:black"><%= property.title %></h3>
     <h5 style="color:black">Comment: <%= property.reviews[i].comment %></h5>
 
     <% let rating = property.reviews[i].rating; %>

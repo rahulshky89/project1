@@ -44,7 +44,7 @@ const store = MongoStore.create({
   crypto: { secret: "TripleCore" },
 });
 
-// 📌 JOI Validation
+//  JOI Validation
 const joivalidate = function (req, res, next) {
   const result = reviewSchema.validate(req.body.review);
   if (result.error) {
@@ -114,6 +114,9 @@ app.get("/explore", async function (req, res) {
 app.get("/list/:id", async function (req, res) {
   const { id } = req.params;
   const property = await Property.findById(id).populate("reviews");
+  if (!property) {
+    return res.status(404).send("Property not found");
+  }
   res.render("listing/show", { property });
 });
 
@@ -256,11 +259,14 @@ app.post("/cancel-booking/:id", isLogin, async (req, res) => {
 app.post("/list/:id/review", joivalidate, async function (req, res) {
   const { id } = req.params;
   const property = await Property.findById(id);
+  if (!property) {
+    return res.status(404).send("Property not found");
+  }
   const Reviews = new Review(req.body.review);
-
-  property.reviews.push(Reviews);
-  await property.save();
   await Reviews.save();
+
+  property.reviews.push(Reviews._id);
+  await property.save();
 
   res.redirect(`/list/${id}`);
 });
